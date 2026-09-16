@@ -7,16 +7,17 @@ import {
   Pressable,
   TouchableOpacity
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import { Link } from "expo-router";
 import Card from "../../components/Card";
 import Ionicons from "@react-native-vector-icons/ionicons";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar style="auto" />
       <View style={styles.welcomeContainer}>
         <View>
           <Text style={styles.primaryText}>Welcome, User</Text>
@@ -57,7 +58,8 @@ export default function Index() {
             <Text style={{fontSize:18, color: '#fff'}}>Agrega un nuevo producto a tu lista</Text>
             <Ionicons name='add-circle-outline' size={24} color="#fff" />
         </TouchableOpacity>
-    </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
