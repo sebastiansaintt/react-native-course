@@ -1,53 +1,129 @@
-import {View, Text, Image,StyleSheet} from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
+import Card from "../../components/Card";
+import { StatusBar } from "expo-status-bar";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { Link } from "expo-router";
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_700Bold,
+} from "@expo-google-fonts/inter";
 
-export default function Index(){
-    return (
-        <View style={styles.container}>
-            <View style={styles.welcomeContainer}>
-                <View>
-                    <Text style={styles.primaryText} >Hola, Usuario</Text>
-                    <Text style={styles.secondaryText}>Este es tu resumen de deseos</Text>
-                </View>
-                <View>
-                    <Image source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKjz1gVQ92u98ghfzfAf7EpyXj3YRCLujbhUYTqSt0Dg&s=10'}} style={styles.image} />
-                </View>
-            </View>
-            <View>
-             <View>
-                <Text>Tus deseos</Text>
-             </View>
-             <View>
+export default function Index() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_700Bold,
+  });
 
-             </View>
-            </View>
+  if (!fontsLoaded) {
+    return null;
+  }
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <StatusBar style="auto" />
+        <View style={styles.welcomeContainer}>
+          <View>
+            <Text style={styles.primaryText}>Welcome, User</Text>
+            <Text style={styles.secondaryText}>
+              This is a summary of your wishlist
+            </Text>
+          </View>
+          <View>
+            <Link href="/profile">
+              <Image
+                source={{
+                  uri: "https://img.magnific.com/free-vector/woman-profile-account-picture_24908-81036.jpg?semt=ais_hybrid&w=740&q=80",
+                }}
+                style={styles.image}
+              />
+            </Link>
+          </View>
         </View>
-    )
+
+        <View style={styles.cardContainer}>
+          <Card
+            icon="heart"
+            color="#F02222"
+            data="10"
+            text="Saved Wishes"
+            symbol=""
+          />
+          <Card
+            icon="cash"
+            color="#48C433"
+            data="1000"
+            text="Total Estimated Cost"
+            symbol="$"
+          />
+        </View>
+
+        <View style={styles.wishes}>
+          <View style={styles.headerWishes}>
+            <Text style={styles.primaryText}>Recently Added</Text>
+            <Link href="/wishes" style={styles.link}>
+              <Text style={styles.linkText}>See All</Text>
+            </Link>
+          </View>
+          <View style={styles.products}>
+
+          </View>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
 }
 
-const styles = StyleSheet.create(
-    {
-        container: {
-            flex:1,
-            backgroundColor: '#f5f5f5'
-        },
-        welcomeContainer: {
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            padding: 20,
-        },
-        primaryText: {
-            fontSize: 28,
-            fontWeight: 'bold',
-            color: '#000000',
-        },
-        secondaryText: {
-            fontSize: 14,
-            color: '#000000',
-        },
-        image: {
-            width: 50,
-            height: 50,
-            borderRadius: 50,
-        }
-    }
-)
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: "#f5f5f5",
+  },
+  welcomeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  primaryText: {
+    fontSize: 28,
+    fontFamily: "Inter_700Bold",
+    color: "#000000",
+    letterSpacing: -0.5
+  },
+  secondaryText: {
+    fontSize: 18,
+    color: "#6d6d6db6",
+    fontFamily: "Inter_400Regular",
+    letterSpacing: -0.8
+  },
+  image: {
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+  },
+  cardContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 20,
+    paddingBottom: 20,
+    gap: 8,
+  },
+  wishes: {
+    padding: 10,
+  },
+  headerWishes: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  linkText: {
+    fontFamily: 'Inter_700Bold',
+    color: "#008aedff",
+    fontSize: 18,
+  },
+});
