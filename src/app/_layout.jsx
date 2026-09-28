@@ -1,4 +1,4 @@
-import {Stack} from 'expo-router';
+import {Tabs} from 'expo-router';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
@@ -6,7 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 export default function RootLayout() {
     return (
         <SafeAreaProvider>
-            <Stack/>
+            <Tabs />
         </SafeAreaProvider>
     )
 }

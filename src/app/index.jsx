@@ -20,6 +20,11 @@ export default function Index() {
   if (!fontsLoaded) {
     return null;
   }
+  const data = [
+    {"id": 1, "name": 'Airpods', "price": 2000},
+    {"id": 2, "name": 'tv', "price": 1500},
+    {"id": 3, "name": 'iphone', "price": 1000},
+  ]
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -68,7 +73,12 @@ export default function Index() {
             </Link>
           </View>
           <View style={styles.products}>
-
+            {data.slice(-3).reverse().map((item, index)=>(
+              <View key={index} style={{backgroundColor: '#fff', padding: 10, borderRadius: 10, marginBottom: 10}}>
+                <Text>{item.name}</Text>
+                <Text>{item.price}</Text>
+              </View>
+            ))}
           </View>
         </View>
       </ScrollView>
