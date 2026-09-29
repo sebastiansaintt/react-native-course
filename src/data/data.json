@@ -1,3 +1,142 @@
 [
-    
+  {
+    "id": 1,
+    "name": "Spotify Gift Card",
+    "price": 30.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 2,
+    "name": "Netflix Subscription",
+    "price": 19.99,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 3,
+    "name": "iPhone 15 Pro",
+    "price": 999.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 4,
+    "name": "MacBook Air",
+    "price": 1099.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 5,
+    "name": "Apple AirTag",
+    "price": 29.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 6,
+    "name": "JBL PartyBox Speaker",
+    "price": 129.95,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 7,
+    "name": "Beats Studio Headphones",
+    "price": 199.99,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 8,
+    "name": "Nike Shox TL",
+    "price": 170.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 9,
+    "name": "Chrome Hearts Glasses",
+    "price": 1450.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 10,
+    "name": "Ray-Ban Meta Glasses",
+    "price": 299.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 11,
+    "name": "Backpack Louis Vuitton",
+    "price": 2850.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 12,
+    "name": "Crossbag Louis Vuitton",
+    "price": 1950.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 13,
+    "name": "Air conditioning",
+    "price": 450.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 14,
+    "name": "Book: How to Win Friends and Influence People",
+    "price": 16.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 15,
+    "name": "Handshaver Honda",
+    "price": 45.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 16,
+    "name": "RGB Lights Room",
+    "price": 25.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 17,
+    "name": "TV Samsung 2K",
+    "price": 320.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 18,
+    "name": "Monitor Samsung 90Hz",
+    "price": 140.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 19,
+    "name": "Night Lamp",
+    "price": 35.00,
+    "url_product": "",
+    "url_image": ""
+  },
+  {
+    "id": 20,
+    "name": "Video Beam",
+    "price": 180.00,
+    "url_product": "",
+    "url_image": ""
+  }
 ]
