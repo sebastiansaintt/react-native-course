@@ -1,8 +1,9 @@
-import {View, Text, StyleSheet, FlatList} from 'react-native';
-import data from '../data/data.json';
-
+import {View, Text, StyleSheet, FlatList, Pressable} from 'react-native';
+import data from '../../data/data.json';
+import { useRouter } from 'expo-router';
 
 export default function Profile(){
+    const router = useRouter();
     const data = [ 
             {"id": 4, "name": 'iphone', "price": 1000},
             {"id": 5, "name": 'iphone', "price": 1000},
@@ -18,10 +19,12 @@ export default function Profile(){
             data={data}
             keyExtractor={(item)=>item.id.toString()}
             renderItem={({item}) => (
-                <View>
-                    <Text>{item.name}</Text>
-                    <Text>{item.price}</Text>
-                </View>
+                <Pressable onPress={() => router.push(`/products/${item.id}`)} style={styles.itemContainer}>
+                    <View style={styles.itemContent}>
+                        <Text style={styles.itemName}>{item.name}</Text>
+                        <Text style={styles.itemPrice}>${item.price}</Text>
+                    </View>
+                </Pressable>
             )}
             
             />

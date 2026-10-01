@@ -1,5 +1,5 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
-import Card from "../../components/Card";
+import { View, Text, Image, StyleSheet, ScrollView, Pressable, Modal, Button } from "react-native";
+import Card from "../../../components/Card";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
@@ -9,8 +9,11 @@ import {
   Inter_500Medium,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
+import {useState} from 'react';
+import Ionicons from "@react-native-vector-icons/ionicons";
 
 export default function Index() {
+  const [modalVisible, setModalVisible] = useState(false);
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -25,6 +28,7 @@ export default function Index() {
     {"id": 2, "name": 'tv', "price": 1500},
     {"id": 3, "name": 'iphone', "price": 1000},
   ]
+  
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -64,6 +68,25 @@ export default function Index() {
             symbol="$"
           />
         </View>
+
+        <Pressable
+        onPress={() => setModalVisible(true)}
+        style={styles.button}
+        >
+          <Text style={styles.buttonText}>Add Wish</Text>
+          <Ionicons name="add" color="#fff" size={24} />
+        </Pressable>
+        <Modal
+          visible={modalVisible}
+          animationType="slide"
+          presentationStyle="pageSheet"
+          onRequestClose={()=>setModalVisible(false)}
+          >
+            <Button
+            title="Close"
+            onPress={()=> setModalVisible(false)}
+            />
+          </Modal>
 
         <View style={styles.wishes}>
           <View style={styles.headerWishes}>
@@ -136,4 +159,19 @@ const styles = StyleSheet.create({
     color: "#008aedff",
     fontSize: 18,
   },
+  button: {
+    backgroundColor: "#008aedff",
+    padding: 15,
+    margin: 10,
+    borderRadius: 10,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 10
+  },
+  buttonText: {
+    color: '#fff',
+    fontFamily: 'Inter_700Bold',
+    fontSize: 18,
+  }
 });
