@@ -1,5 +1,5 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
-import Card from "../../components/Card";
+import { View, Text, Image, StyleSheet, ScrollView, Pressable, Modal} from "react-native";
+import Card from "../../../components/Card";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
@@ -9,8 +9,10 @@ import {
   Inter_500Medium,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
+import {useState} from 'react';
 
 export default function Index() {
+  const [modalVisible, setModalVisible] = useState(false);
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -64,7 +66,25 @@ export default function Index() {
             symbol="$"
           />
         </View>
-
+        <Pressable
+        onPress={() => setModalVisible(true)}
+        style={{backgroundColor: '#1f2effff', padding: 15, borderRadius: 10, margin: 10}}
+        >
+            <Text>Add Wish</Text>
+        </Pressable>
+        <Modal
+        visible={modalVisible}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={()=> setModalVisible(false)}
+        >
+          <Text>Hola</Text>
+          <Pressable
+          onPress={() => setModalVisible(false)}
+          >
+            <Text>Cerrar</Text>
+          </Pressable>
+        </Modal>
         <View style={styles.wishes}>
           <View style={styles.headerWishes}>
             <Text style={styles.primaryText}>Recently Added</Text>
