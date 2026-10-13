@@ -5,12 +5,12 @@ export default function TabsLayout() {
     return (
         <Tabs
         screenOptions={{
-            headerShown: false
+            headerShown: false,
         }}>
             <Tabs.Screen name="index" options={{
                 title: 'Home',
                 tabBarIcon: () => (
-                    <Ionicons name="home" size={24} color="blue" />
+                    <Ionicons name='home' size={24} color='blue'/>
                 )
             }}/>
             <Tabs.Screen name="wishes" options={{
@@ -22,7 +22,7 @@ export default function TabsLayout() {
             <Tabs.Screen name="profile" options={{
                 title: 'Profile',
                 tabBarIcon: () => (
-                    <Ionicons name="person" size={24} color="blue" />
+                    <Ionicons name='person' size={24} color='blue' />
                 )
             }}/>
         </Tabs>

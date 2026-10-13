@@ -3,7 +3,7 @@ import {useRouter} from 'expo-router';
 import data from '../../data/data.json';
 
 
-export default function Profile(){
+export default function Wishes(){
     const router = useRouter();
     const data = [ 
             {"id": 4, "name": 'iphone', "price": 1000},
