@@ -10,6 +10,8 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 import {useState} from 'react';
+import Ionicons from "@react-native-vector-icons/ionicons";
+import {props} from '../../StyleProps'
 
 export default function Index() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -68,9 +70,15 @@ export default function Index() {
         </View>
         <Pressable
         onPress={() => setModalVisible(true)}
-        style={{backgroundColor: '#1f2effff', padding: 15, borderRadius: 10, margin: 10}}
+        style={({pressed}) => [styles.addButton, pressed && styles.addButtonPressed]}
         >
-            <Text>Add Wish</Text>
+            <View style={{gap: 4}}>
+              <Text style={styles.primaryTextButton}>¿Did u like something?</Text>
+              <Text style={styles.secondaryTextButton}>Add New Wish</Text>
+            </View>
+            <View style={{backgroundColor: '#0d6efdff', padding: 4, borderRadius: 20}}>
+              <Ionicons name="add" size={34} color="#fff" />
+            </View>
         </Pressable>
         <Modal
         visible={modalVisible}
@@ -142,6 +150,35 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 20,
     gap: 8,
+  },
+  addButton: {
+    backgroundColor: props.accent,
+    margin: 10,
+    padding: 14,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderRadius: 18,
+    shadowColor: props.accent,
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.6,
+    shadowRadius: 20,
+    elevation: 3,
+  },
+  addButtonPressed: {
+    transform: [{scale: 0.97}],
+    opacity: 0.8,
+  },
+  primaryTextButton: {
+    fontSize: 18,
+    fontFamily: 'Inter_700Bold',
+    color: '#fff',
+    letterSpacing: -0.5
+  },
+  secondaryTextButton: {
+    fontSize: 16,
+    fontFamily: 'Inter_400Regular',
+    color: '#e9e9e9ff'
   },
   wishes: {
     padding: 10,
