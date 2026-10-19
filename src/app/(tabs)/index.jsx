@@ -11,6 +11,9 @@ import {
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
 import {useState} from 'react';
+import Ionicons from "@react-native-vector-icons/ionicons";
+import {colors, typography, spacing, radius} from '../../Tokens';
+import WishesData from '../../data/data.json'
 
 export default function Index() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -23,11 +26,6 @@ export default function Index() {
   if (!fontsLoaded) {
     return null;
   }
-  const data = [
-    {"id": 1, "name": 'Airpods', "price": 2000},
-    {"id": 2, "name": 'tv', "price": 1500},
-    {"id": 3, "name": 'iphone', "price": 1000},
-  ]
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -69,9 +67,15 @@ export default function Index() {
         </View>
         <Pressable
         onPress={() => setModalVisible(true)}
-        style={{backgroundColor: '#1f2effff', padding: 15, borderRadius: 10, margin: 10}}
+        style={({pressed}) => [styles.button, pressed && styles.buttonPressed]}
         >
-            <Text>Add Wish</Text>
+            <View style={{gap: 4}}>
+              <Text style={{fontSize: 18, fontFamily: 'Inter_500Medium', color: '#fff'}}>¿Did u something like?</Text>
+              <Text style={{fontSize: 15, fontFamily: 'Inter_400Regular', color: '#e6e6e6ff'}}> Press here to Add New Wish</Text>
+            </View>
+            <View>
+              <Ionicons name="add" size={40} color={'#fff'} />
+            </View>
         </Pressable>
         <Modal
         visible={modalVisible}
@@ -94,10 +98,11 @@ export default function Index() {
             </Link>
           </View>
           <View style={styles.products}>
-            {data.slice(-3).reverse().map((item, index)=>(
-              <View key={index} style={{backgroundColor: '#fff', padding: 10, borderRadius: 10, marginBottom: 10}}>
-                <Text>{item.name}</Text>
-                <Text>{item.price}</Text>
+            {WishesData.slice(-3).reverse().map((item, index)=>(
+              <View key={index} style={styles.productItem}>
+                <Image source={{uri: item.url_image}} style={{width: 50, height: 50, resizeMode: 'contain'}} />
+                <Text style={{fontFamily: 'Inter_400Regular', fontSize: 14}}>{item.name}</Text>
+                <Text style={{fontFamily: 'Inter_700Bold', color: colors.accent, fontSize: 16}}>${item.price}</Text>
               </View>
             ))}
           </View>
@@ -144,6 +149,24 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     gap: 8,
   },
+  button: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: colors.accent,
+    margin: spacing.xs,
+    padding: spacing.sm,
+    borderRadius: radius.lg,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 2, 
+  },
+  buttonPressed: {
+    transform: [{scale: 0.95}],
+    opacity: 0.8
+  },
   wishes: {
     padding: 10,
   },
@@ -157,4 +180,21 @@ const styles = StyleSheet.create({
     color: "#008aedff",
     fontSize: 18,
   },
+  products: {
+    marginTop: 12,
+    gap: 10
+  },
+  productItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: spacing.sm,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 2,
+  }
 });

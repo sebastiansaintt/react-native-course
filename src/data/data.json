@@ -3,140 +3,140 @@
     "id": 1,
     "name": "Spotify Gift Card",
     "price": 30.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.mercadolibre.com.co/gift-card-tarjeta-regalo-spotify-1-mes-colombia--obsequio/up/MCOU2615078011",
+    "url_image": "https://http2.mlstatic.com/D_NQ_NP_892303-MCO44174577569_112020-O.webp"
   },
   {
     "id": 2,
-    "name": "Netflix Subscription",
+    "name": "Netflix Gift Card",
     "price": 19.99,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.mercadolibre.com.co/gift-card-netflix-gift-card-digital/p/MCO27848183",
+    "url_image": "https://http2.mlstatic.com/D_NQ_NP_979361-MLU78311095132_082024-O.webp"
   },
   {
     "id": 3,
     "name": "iPhone 15 Pro",
     "price": 999.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.mercadolibre.com.co/apple-iphone-15-pro-512-gb-titanio-natural/p/MCO27172711",
+    "url_image": "https://http2.mlstatic.com/D_Q_NP_2X_975721-MLA104463106924_012026-P.webp"
   },
   {
     "id": 4,
     "name": "MacBook Air",
     "price": 1099.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://co.tiendasishop.com/products/macbook-air-de-15-pulgadas-mdvk4e-a?srsltid=AU7gw4UoHjdSgHLd_Hw-FT1045uKwoA2tr1-rOB6owLg1rJqS2vGJJKC",
+    "url_image": "https://co.tiendasishop.com/cdn/shop/files/IMG-19266149_m_jpeg_1_b611f652-5413-4b0e-a9b9-6ac674951614.jpg?v=1772750865&width=823"
   },
   {
     "id": 5,
     "name": "Apple AirTag",
     "price": 29.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://co.tiendasishop.com/products/airtag-mfe94am-a?srsltid=AU7gw4Uw6ghpi58OSFe1056Uhnqz7mi1IGPo75vtgZpQtq9J5eFez67N",
+    "url_image": "https://co.tiendasishop.com/cdn/shop/files/IMG-18747419_m_jpeg_1_9bdc46ad-7252-4a82-a6a1-cd768c1f1dec.jpg?v=1769447489&width=823"
   },
   {
     "id": 6,
     "name": "JBL PartyBox Speaker",
     "price": 129.95,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.jbl.com.co/PARTYBOX-130.html?srsltid=AU7gw4WEQyjGq-YnyPNsX9jGBGWzLp2pKo5sBhXiJz80cFZmpmn1hIrY",
+    "url_image": "https://www.jbl.com.co/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw01c02183/LS_JBL_PARTYBOX_130_HERO_BLACK_0008_x4.png?sw=535&sh=535"
   },
   {
     "id": 7,
     "name": "Beats Studio Headphones",
     "price": 199.99,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://co.tiendasishop.com/products/audifonos-beats-studio-buds-inalambricos-con-cancelacion-de-ruido-negro-dorado?srsltid=AU7gw4WaS36wyEwj8z4CDJZ-3ca2QZolGiAB1-axKxLsMyhE_TUkCNiZ",
+    "url_image": "https://co.tiendasishop.com/cdn/shop/files/MQLH3BE_A_1.webp?v=1739973379&width=823"
   },
   {
     "id": 8,
     "name": "Nike Shox TL",
     "price": 170.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.farfetch.com/co/shopping/women/nike-tenis-shox-tl-white-item-21300012.aspx",
+    "url_image": "https://cdn-images.farfetch-contents.com/21/30/00/12/21300012_51528387_600.jpg"
   },
   {
     "id": 9,
     "name": "Chrome Hearts Glasses",
     "price": 1450.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.mercadolibre.com.co/gafas-chrome-hearts-transparentes-anti-luz-azul-unisex/p/MCO2082372896",
+    "url_image": "https://http2.mlstatic.com/D_NQ_NP_752647-CBT108194998998_032026-O.webp"
   },
   {
     "id": 10,
     "name": "Ray-Ban Meta Glasses",
     "price": 299.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.glassesusa.com/blue-large/ray-ban-meta-smart-glasses-wayfarer-rw4012-blue/46-009100.html",
+    "url_image": "https://optimaxweb.glassesusa.com/image/upload/f_auto,q_auto:eco/ms/media/catalog_product/1/8056262721445_f_1_1.jpg/h=310,w=620,fit=fill"
   },
   {
     "id": 11,
     "name": "Backpack Louis Vuitton",
     "price": 2850.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://share.google/uC8Hr8q3l1Sp9uLcl",
+    "url_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmG_qUTLFBMlfbS1shCeTGq4BvUT1uQjxwrWg1tXiTZQ&s=10"
   },
   {
     "id": 12,
     "name": "Crossbag Louis Vuitton",
     "price": 1950.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.farfetch.com/co/shopping/women/louis-vuitton-pre-owned-multi-pochette-accessoires-monogram-canvas-crossbody-bag-item-33379271.aspx?lang=es-MX&size=17",
+    "url_image": "https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-multi-pochette-accessoires--M44813_PM2_Front%20view.jpg"
   },
   {
     "id": 13,
     "name": "Air conditioning",
     "price": 450.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.olimpica.com/minisplit-forest-plus-save-on-off-seer-11-5-12000-btu-frio-220v-1002405597/p",
+    "url_image": "https://www.ibrosas.com/wp-content/uploads/2024/05/MINISPLITX32_Mesadetrabajo1copia_800x.webp"
   },
   {
     "id": 14,
     "name": "Book: How to Win Friends and Influence People",
     "price": 16.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.panamericana.com.co/how-to-win-friends-and-influence-people-648044/p",
+    "url_image": "https://cdn.kobo.com/book-images/10f1ebd4-2afa-4621-b33f-0a31e67c74c5/1200/1200/False/how-to-win-friends-and-influence-people-16.jpg"
   },
   {
     "id": 15,
     "name": "Handshaver Honda",
     "price": 45.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.mercadolibre.com.co/hand-saver-acerbis-argon-honda-xadv-750en-aolmoto/up/MCOU2482004906",
+    "url_image": "https://http2.mlstatic.com/D_NQ_NP_870110-MCO71190456873_082023-O.webp"
   },
   {
     "id": 16,
-    "name": "RGB Lights Room",
-    "price": 25.00,
-    "url_product": "",
-    "url_image": ""
+    "name": "Asics Gel",
+    "price": 479.00,
+    "url_product": "https://www.asics.com.co/tenis/sportstyle/gel-nyc?srsltid=AU7gw4WN_eNdu5_9I2BBZIr2c7Hrb64RgKtXCuimIaT8reKPyY_XAKm1",
+    "url_image": "https://slamjam.com/cdn/shop/files/Asics-Footwear-Low-GelNycBlack-1203A280-003-20260119163215_1.jpg?v=1768908023"
   },
   {
     "id": 17,
-    "name": "TV Samsung 2K",
-    "price": 320.00,
-    "url_product": "",
-    "url_image": ""
+    "name": "TV Samsung 55",
+    "price": 430.00,
+    "url_product": "https://www.mercadolibre.com.co/televisor-samsung-smart-55-the-frame-qled-4k-55ls03b/p/MCO21817325",
+    "url_image": "https://http2.mlstatic.com/D_Q_NP_2X_669890-MLA108549243243_032026-P.webp"
   },
   {
     "id": 18,
-    "name": "Monitor Samsung 90Hz",
-    "price": 140.00,
-    "url_product": "",
-    "url_image": ""
+    "name": "Monitor Samsung 24",
+    "price": 690.00,
+    "url_product": "https://www.mercadolibre.com.co/monitor-samsung-c24f390fh-24-curved-monitor-con-experiencia-inmersiva-color-negro/p/MCO43961199",
+    "url_image": "https://http2.mlstatic.com/D_NQ_NP_886158-MLA46737528644_072021-O.webp"
   },
   {
     "id": 19,
-    "name": "Night Lamp",
+    "name": "Xiaomi Smart Clock 2",
     "price": 35.00,
-    "url_product": "",
-    "url_image": ""
+    "url_product": "https://www.mercadolibre.com.co/parlante-inteligente-xiaomi-mi-smart-clock-x04g-con-asistente-virtual-google-assistant-pantalla-integrada-de-397-blanco/p/MCO21453641",
+    "url_image": "https://http2.mlstatic.com/D_NQ_NP_769431-MLA53526749921_012023-O.webp"
   },
   {
     "id": 20,
     "name": "Video Beam",
-    "price": 180.00,
-    "url_product": "",
-    "url_image": ""
+    "price": 360.00,
+    "url_product": "https://www.exito.com/video-beam-epson-powerlite-e20-3400-lumens-xga-1024x768-101114752-mp/p",
+    "url_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy2ec0WKqFHaTxFTk5ej4eGNvTv49cfKsSOikkE0JUBQ&s=10"
   }
 ]
