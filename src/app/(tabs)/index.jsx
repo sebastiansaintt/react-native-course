@@ -12,7 +12,7 @@ import {
 } from "@expo-google-fonts/inter";
 import {useState} from 'react';
 import Ionicons from "@react-native-vector-icons/ionicons";
-import {colors, typography, spacing, radius} from '../../Tokens';
+import {colors, typography, spacing, radius, borders, shadows} from '../../Tokens';
 import WishesData from '../../data/data.json'
 
 export default function Index() {
@@ -166,6 +166,73 @@ const styles = StyleSheet.create({
   buttonPressed: {
     transform: [{scale: 0.95}],
     opacity: 0.8
+  },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.md,
+    backgroundColor: colors.surface,
+    borderBottomWidth: borders.hairline,
+    borderBottomColor: colors.separator,
+  },
+  modalTitle: {
+    ...typography.headline,
+    color: colors.text,
+  },
+  modalCancelText: {
+    ...typography.body,
+    color: colors.secondaryText,
+  },
+  modalSaveText: {
+    ...typography.headline,
+    color: colors.accent,
+  },
+  formContent: {
+    padding: spacing.md,
+    gap: spacing.md,
+  },
+  inputGroup: {
+    gap: spacing.xxs, // Ley de proximidad Gestalt (label pegado a su input)
+  },
+  inputLabel: {
+    ...typography.subhead,
+    fontFamily: 'Inter_600SemiBold',
+    color: colors.text,
+  },
+  input: {
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    borderRadius: radius.md,
+    ...typography.body,
+    borderWidth: 1,
+    borderColor: colors.fill,
+    minHeight: 48, // Apple HIG min touch area
+    color: colors.text,
+  },
+  submitButton: {
+    backgroundColor: colors.accent,
+    paddingVertical: spacing.md,
+    borderRadius: radius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: spacing.md,
+    ...shadows.soft,
+  },
+  submitButtonPressed: {
+    backgroundColor: colors.accentHover,
+    opacity: 0.85,
+    transform: [{ scale: 0.98 }],
+  },
+  submitButtonText: {
+    ...typography.headline,
+    color: '#FFFFFF',
   },
   wishes: {
     padding: 10,
