@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   products: {
     flex: 1,
     paddingHorizontal: spacing.md,
-    paddingBottom: spacing.xxl,
+    paddingBottom: spacing.sm,
   },
   productCard: {
     backgroundColor: colors.surface,

@@ -63,7 +63,7 @@ export const typography = {
   headline: {
     fontSize: 17,
     fontFamily: 'Inter_500Medium',
-    letterSpacing: -0.8,
+    letterSpacing: -0.6,
     color: colors.text,
   },
   body: {

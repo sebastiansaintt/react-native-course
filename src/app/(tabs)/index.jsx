@@ -1,31 +1,59 @@
-import { View, Text, Image, StyleSheet, ScrollView, Pressable, Modal} from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  Pressable,
+  Modal,
+  TextInput, Alert
+} from "react-native";
 import Card from "../../../components/Card";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
-import {
-  useFonts,
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-} from "@expo-google-fonts/inter";
-import {useState} from 'react';
+import { useState } from "react";
 import Ionicons from "@react-native-vector-icons/ionicons";
-import {colors, typography, spacing, radius, borders, shadows} from '../../Tokens';
-import WishesData from '../../data/data.json'
+import {
+  colors,
+  typography,
+  spacing,
+  radius,
+  borders,
+  shadows,
+} from "../../Tokens";
+import WishesData from "../../data/data.json";
 
 export default function Index() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_700Bold,
-  });
 
-  if (!fontsLoaded) {
-    return null;
+  const [textInput, setTextInput] = useState({
+    name: "",
+    price: "",
+    url_image: "",
+    link: ""
+  })
+  
+  const [saved, setSaved] = useState(false);
+  const [errors, setErrors] = useState({});
+  
+  const handleSave = () => {
+
+    let newErrors = {};
+
+    const cleanName = textInput.name
+      .trim()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, ""); 
+
+      if (!textInput.name.trim()) {
+        newErrors.name = 'El nombre es obligatorio'
+      } else if (!/^[a-zA-ZñÑ\s]+$/.test(cleanName)) {
+        newErrors.name = 'El nombre solo puede contener letras'
+      }
+    
   }
+  
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -66,29 +94,117 @@ export default function Index() {
           />
         </View>
         <Pressable
-        onPress={() => setModalVisible(true)}
-        style={({pressed}) => [styles.button, pressed && styles.buttonPressed]}
+          onPress={() => setModalVisible(true)}
+          style={({ pressed }) => [
+            styles.button,
+            pressed && styles.buttonPressed,
+          ]}
         >
-            <View style={{gap: 4}}>
-              <Text style={{fontSize: 18, fontFamily: 'Inter_500Medium', color: '#fff'}}>¿Did u something like?</Text>
-              <Text style={{fontSize: 15, fontFamily: 'Inter_400Regular', color: '#e6e6e6ff'}}> Press here to Add New Wish</Text>
-            </View>
-            <View>
-              <Ionicons name="add" size={40} color={'#fff'} />
-            </View>
+          <View style={{ gap: 4 }}>
+            <Text
+              style={{
+                fontSize: 18,
+                fontFamily: "Inter_500Medium",
+                color: "#fff",
+              }}
+            >
+              ¿Did u something like?
+            </Text>
+            <Text
+              style={{
+                fontSize: 15,
+                fontFamily: "Inter_400Regular",
+                color: "#e6e6e6ff",
+              }}
+            >
+              Press here to Add New Wish
+            </Text>
+          </View>
+          <View>
+            <Ionicons name="add" size={40} color={"#fff"} />
+          </View>
         </Pressable>
         <Modal
-        visible={modalVisible}
-        animationType="slide"
-        presentationStyle="pageSheet"
-        onRequestClose={()=> setModalVisible(false)}
+          visible={modalVisible}
+          animationType="slide"
+          presentationStyle="pageSheet"
+          onRequestClose={() => setModalVisible(false)}
         >
-          <Text>Hola</Text>
-          <Pressable
-          onPress={() => setModalVisible(false)}
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>Adding New Wish</Text>
+              <Pressable onPress={() => setModalVisible(false)}>
+                <Ionicons name="close" size={24} color={colors.secondaryText} />
+              </Pressable>
+            </View>
+            <View style={styles.formContent}>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Product Name</Text>
+                <TextInput
+                  placeholder="Product Name"
+                  placeholderTextColor={colors.tertiaryText}
+                  value={textInput.name}
+                  onChangeText={e => setTextInput({...textInput, name: e})}
+                  spellCheck={false}
+                  autoCorrect={false}
+                  style={styles.input}
+                />
+              </View>
+              <View>
+                <Text style={styles.inputLabel}>Product Price</Text>
+                <TextInput
+                  placeholder="Product Price"
+                  placeholderTextColor={colors.tertiaryText}
+                  value={textInput.price}
+                  onChangeText={e => setTextInput({...textInput, price: e})}
+                  spellCheck={false}
+                  autoCorrect={false}
+                  style={styles.input}
+                  inputMode="numeric"
+                  keyboardType="decimal-pad"
+                />
+              </View>
+              <View>
+                <Text style={styles.inputLabel}>Product Image</Text>
+                <TextInput
+                  placeholder="https://www.example.com/image.jpg"
+                  placeholderTextColor={colors.tertiaryText}
+                  value={textInput.url_image}
+                  onChangeText={e => setTextInput({...textInput, url_image: e})}
+                  spellCheck={false}
+                  autoCorrect={false}
+                  inputMode="url"
+                  keyboardType="url"
+                  style={styles.input}
+                />
+              </View>
+              <View>
+                <Text style={styles.inputLabel}>Product Link</Text>
+                <TextInput
+                  placeholder="https://www.example.com"
+                  placeholderTextColor={colors.tertiaryText}
+                  value={textInput.link}
+                  onChangeText={e => setTextInput({...textInput, link: e})}
+                  spellCheck={false}
+                  autoCorrect={false}
+                  inputMode="url"
+                  keyboardType="url"
+                  style={styles.input}
+                />
+              </View>
+              <Pressable
+          onPress={()=>{
+            
+          }}
+          style={({ pressed }) => [
+            styles.submitButton,
+            pressed && styles.submitButtonPressed,
+          ]}
           >
-            <Text>Cerrar</Text>
+            <Text style={styles.submitButtonText}>Save Wish</Text>
           </Pressable>
+            </View>
+          </View>
         </Modal>
         <View style={styles.wishes}>
           <View style={styles.headerWishes}>
@@ -98,13 +214,30 @@ export default function Index() {
             </Link>
           </View>
           <View style={styles.products}>
-            {WishesData.slice(-3).reverse().map((item, index)=>(
-              <View key={index} style={styles.productItem}>
-                <Image source={{uri: item.url_image}} style={{width: 50, height: 50, resizeMode: 'contain'}} />
-                <Text style={{fontFamily: 'Inter_400Regular', fontSize: 14}}>{item.name}</Text>
-                <Text style={{fontFamily: 'Inter_700Bold', color: colors.accent, fontSize: 16}}>${item.price}</Text>
-              </View>
-            ))}
+            {WishesData.slice(-3)
+              .reverse()
+              .map((item, index) => (
+                <View key={index} style={styles.productItem}>
+                  <Image
+                    source={{ uri: item.url_image }}
+                    style={{ width: 50, height: 50, resizeMode: "contain" }}
+                  />
+                  <Text
+                    style={{ fontFamily: "Inter_400Regular", fontSize: 14 }}
+                  >
+                    {item.name}
+                  </Text>
+                  <Text
+                    style={{
+                      fontFamily: "Inter_700Bold",
+                      color: colors.accent,
+                      fontSize: 16,
+                    }}
+                  >
+                    ${item.price}
+                  </Text>
+                </View>
+              ))}
           </View>
         </View>
       </ScrollView>
@@ -114,7 +247,7 @@ export default function Index() {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: "#f5f5f5",
   },
   welcomeContainer: {
@@ -127,13 +260,13 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontFamily: "Inter_700Bold",
     color: "#000000",
-    letterSpacing: -0.5
+    letterSpacing: -0.5,
   },
   secondaryText: {
     fontSize: 18,
     color: "#6d6d6db6",
     fontFamily: "Inter_400Regular",
-    letterSpacing: -0.8
+    letterSpacing: -0.8,
   },
   image: {
     width: 50,
@@ -150,31 +283,31 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   button: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     backgroundColor: colors.accent,
     margin: spacing.xs,
     padding: spacing.sm,
     borderRadius: radius.lg,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
     shadowRadius: 10,
-    elevation: 2, 
+    elevation: 2,
   },
   buttonPressed: {
-    transform: [{scale: 0.95}],
-    opacity: 0.8
+    transform: [{ scale: 0.95 }],
+    opacity: 0.8,
   },
   modalContainer: {
     flex: 1,
     backgroundColor: colors.background,
   },
   modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     paddingHorizontal: spacing.md,
     paddingVertical: spacing.md,
     backgroundColor: colors.surface,
@@ -182,7 +315,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.separator,
   },
   modalTitle: {
-    ...typography.headline,
+    ...typography.title,
     color: colors.text,
   },
   modalCancelText: {
@@ -198,11 +331,11 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   inputGroup: {
-    gap: spacing.xxs, // Ley de proximidad Gestalt (label pegado a su input)
+    gap: spacing.xxs,
   },
   inputLabel: {
-    ...typography.subhead,
-    fontFamily: 'Inter_600SemiBold',
+    ...typography.headline,
+    fontFamily: "Inter_500Medium",
     color: colors.text,
   },
   input: {
@@ -213,26 +346,35 @@ const styles = StyleSheet.create({
     ...typography.body,
     borderWidth: 1,
     borderColor: colors.fill,
-    minHeight: 48, // Apple HIG min touch area
-    color: colors.text,
+    minHeight: 48,
+  },
+  inputError: {
+    borderColor: colors.danger,
+    borderWidth: 1.5,
+  },
+  errorText: {
+    color: colors.danger,
+    fontSize: 12,
+    fontFamily: "Inter_400Regular",
+    marginTop: 2,
   },
   submitButton: {
     backgroundColor: colors.accent,
     paddingVertical: spacing.md,
     borderRadius: radius.md,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginTop: spacing.md,
     ...shadows.soft,
   },
   submitButtonPressed: {
-    backgroundColor: colors.accentHover,
-    opacity: 0.85,
+    backgroundColor: colors.accent,
+    opacity: 0.8,
     transform: [{ scale: 0.98 }],
   },
   submitButtonText: {
     ...typography.headline,
-    color: '#FFFFFF',
+    color: "#FFFFFF",
   },
   wishes: {
     padding: 10,
@@ -243,25 +385,25 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   linkText: {
-    fontFamily: 'Inter_700Bold',
+    fontFamily: "Inter_700Bold",
     color: "#008aedff",
     fontSize: 18,
   },
   products: {
     marginTop: 12,
-    gap: 10
+    gap: 10,
   },
   productItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    backgroundColor: "#fff",
     padding: 10,
     borderRadius: spacing.sm,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 6,
     elevation: 2,
-  }
+  },
 });
