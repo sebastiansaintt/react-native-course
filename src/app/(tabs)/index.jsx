@@ -1,15 +1,8 @@
-import { View, Text, Image, StyleSheet, ScrollView, Pressable, Modal} from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView, Pressable, Modal, TextInput, Alert} from "react-native";
 import Card from "../../../components/Card";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Link } from "expo-router";
-import {
-  useFonts,
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-} from "@expo-google-fonts/inter";
 import {useState} from 'react';
 import Ionicons from "@react-native-vector-icons/ionicons";
 import {colors, typography, spacing, radius, borders, shadows} from '../../Tokens';
@@ -17,14 +10,41 @@ import WishesData from '../../data/data.json'
 
 export default function Index() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_700Bold,
-  });
+  const [textInput, setTextInput] = useState({
+    name: '',
+    price: '',
+    imageUrl: '',
+    productUrl: ''
+  })
 
-  if (!fontsLoaded) {
-    return null;
+  const [errors, setErrors] = useState({name: false, price: false, imageUrl: false, productUrl: false})
+
+  const handleSave = () => {
+    let newErrors = {};
+
+    const cleanName = textInput.name.trim();
+    const cleanPrice = textInput.price.trim();
+    const cleanImageUrl = textInput.imageUrl.trim();
+    const cleanProductUrl = textInput.productUrl.trim();
+
+    if(!cleanName){
+      newErrors.name = true
+    }
+    if(!cleanPrice){
+      newErrors.price = true
+    }
+    if(!cleanImageUrl){
+      newErrors.imageUrl = true
+    }
+    if(!cleanProductUrl){
+      newErrors.productUrl = true
+    }
+
+    setErrors(newErrors);
+    console.log('New Wish Added');
+    console.log(textInput)
+
+    Alert.alert('New Wish Added')
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -83,12 +103,64 @@ export default function Index() {
         presentationStyle="pageSheet"
         onRequestClose={()=> setModalVisible(false)}
         >
-          <Text>Hola</Text>
-          <Pressable
-          onPress={() => setModalVisible(false)}
-          >
-            <Text>Cerrar</Text>
-          </Pressable>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>Adding New Wish</Text>
+              <Pressable onPress={()=> setModalVisible(false)}>
+                <Ionicons name="close" size={24} color={colors.secondaryText} />
+              </Pressable>
+            </View>
+            <View style={styles.modalContent}>
+              <View style={styles.formContent}>
+                <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Product Name</Text>
+                <TextInput
+                placeholder="Product Name"
+                placeholderTextColor={colors.secondaryText}
+                value={textInput.name}
+                onChangeText={(value) => setTextInput({...textInput, name: value})}
+                style={[styles.input, errors.name && styles.inputError]}
+                 />
+              </View>
+              <View>
+                <Text style={styles.inputLabel}>Product Price</Text>
+                <TextInput
+                placeholder="Product Price"
+                placeholderTextColor={colors.secondaryText}
+                value={textInput.price}
+                onChangeText={(value) => setTextInput({...textInput, price: value})}
+                style={[styles.input, errors.price && styles.inputError]}
+                 />
+              </View>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Product Image Link</Text>
+                <TextInput
+                placeholder="https://example.com/1.jpg"
+                placeholderTextColor={colors.secondaryText}
+                value={textInput.imageUrl}
+                onChangeText={(value) => setTextInput({...textInput, imageUrl: value})}
+                style={[styles.input, errors.imageUrl && styles.inputError]}
+                 />
+              </View>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>Link Product</Text>
+                <TextInput
+                placeholder="https://example.com"
+                placeholderTextColor={colors.secondaryText}
+                value={textInput.productUrl}
+                onChangeText={(value) => setTextInput({...textInput, productUrl: value})}
+                style={[styles.input, errors.productUrl && styles.inputError]}
+                 />
+              </View>
+              <Pressable
+              onPress={handleSave}
+              style={({pressed}) => [styles.submitButton, pressed && styles.submitButtonPressed]}
+              >
+                <Text style={styles.submitButtonText}>Save Wish</Text>
+              </Pressable>
+              </View>
+            </View>
+          </View>
         </Modal>
         <View style={styles.wishes}>
           <View style={styles.headerWishes}>
@@ -198,7 +270,7 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   inputGroup: {
-    gap: spacing.xxs, // Ley de proximidad Gestalt (label pegado a su input)
+    gap: spacing.xxs, 
   },
   inputLabel: {
     ...typography.subhead,
@@ -213,7 +285,7 @@ const styles = StyleSheet.create({
     ...typography.body,
     borderWidth: 1,
     borderColor: colors.fill,
-    minHeight: 48, // Apple HIG min touch area
+    minHeight: 48,
     color: colors.text,
   },
   submitButton: {
