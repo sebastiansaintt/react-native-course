@@ -7,8 +7,7 @@ import {
   Inter_600SemiBold,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
-
-
+import {WishProvider} from '../context/WishContext';
 
 export default function RootLayout() {
     const [fontsLoaded] = useFonts({
@@ -22,10 +21,12 @@ export default function RootLayout() {
       }
     return (
         <SafeAreaProvider>
+          <WishProvider>
             <Stack>
                 <Stack.Screen name="(tabs)" options={{headerShown: false}}/>
                 <Stack.Screen name='products/[id]' options={{title: 'Product'}}/>
             </Stack>
+          </WishProvider>
         </SafeAreaProvider>
     )
 }

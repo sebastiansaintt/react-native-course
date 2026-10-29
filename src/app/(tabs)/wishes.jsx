@@ -7,18 +7,20 @@ import {
   Image,
 } from "react-native";
 import { useRouter } from "expo-router";
-import WishesData from "../../data/data.json";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { colors, spacing, typography, radius, shadows } from "../../Tokens";
 import { SafeAreaView } from "react-native-safe-area-context";
+import {useWishes} from '../../context/WishContext';
 
 export default function Wishes() {
   const router = useRouter();
+  const {wishes} = useWishes();
+  
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.products}>
         <FlatList
-          data={WishesData}
+          data={wishes}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <View style={styles.productCard}>
